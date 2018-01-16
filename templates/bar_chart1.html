@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+    <head>
+         <link rel="stylesheet" href="{% static "css/nv.d3.css" %}">
+         <script src="{% static "js/d3.js" %}"></script>
+         <script src="{% static "js/d3.min.js" %}"></script>
+         <script src="{% static "js/nv.d3.min.js" %}"></script>
+    <style>
+
+     #chart1 svg {
+     height: 400px;
+     width: 100%;
+     }
+
+   </style>
+    </head>
+     <body>
+     <div id="chart1">
+         <svg></svg>
+     </div>
+<script>
+var data =
+[
+  {
+    "key": "Saves",
+    "values": [
+      {
+        "x": 1,
+        "y": 35
+      },
+      {
+        "x": 2,
+        "y": 25
+      },
+      {
+        "x": 3,
+        "y": 45
+      },
+       {
+        "x": 4,
+        "y": 35
+      },
+      {
+        "x": 5,
+        "y": 33
+      },
+        {
+        "x": 6,
+        "y": 41
+      },
+       {
+        "x": 7,
+        "y": 52
+      }
+    ]
+  },
+  {
+    "key": "Cancels",
+    "values": [
+      {
+        "x": 1,
+        "y": 22
+      },
+      {
+        "x": 2,
+        "y": 25
+      },
+      {
+        "x": 3,
+        "y": 18
+      },
+       {
+        "x": 4,
+        "y": 30
+      },
+      {
+        "x": 5,
+        "y": 21
+      },
+        {
+        "x": 6,
+        "y": 30
+      },
+       {
+        "x": 7,
+        "y": 35
+      }
+    ]
+  },
+  {
+    "key": "Refunds",
+    "values": [
+      {
+        "x": 1,
+        "y": 16
+      },
+      {
+        "x": 2,
+        "y": 11
+      },
+      {
+        "x": 3,
+        "y": 14
+      },
+      {
+        "x": 4,
+        "y": 18
+      },
+      {
+        "x": 5,
+        "y": 21
+      },
+      {
+        "x": 6,
+        "y": 14
+      },
+      {
+        "x": 7,
+        "y": 9
+      }
+    ]
+  }
+];
+
+nv.addGraph(function() {
+    var chart = nv.models.multiBarChart()
+      .duration(350)
+      .reduceXTicks(true)   //If 'false', every single x-axis tick label will be rendered.
+      .rotateLabels(0)      //Angle to rotate x-axis labels.
+      .showControls(true)   //Allow user to switch between 'Grouped' and 'Stacked' mode.
+      .groupSpacing(0.1)    //Distance between each group of bars.
+    ;
+
+    chart.xAxis
+        .tickFormat(d3.format(',f'));
+
+    chart.yAxis
+        .tickFormat(d3.format(',.1f'));
+
+    d3.select('#chart1 svg')
+        .datum(data)
+        .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+});
+
+
+</script>
+</body>

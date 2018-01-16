@@ -1,0 +1,33 @@
+{%  extends 'base.html' %}
+
+{% block heading %}
+
+{% endblock %}
+
+{% block content %}
+    {% if form.errors %}
+        <p class="alert-error">Sorry Username or Password is Invalid</p>
+    {% endif %}
+
+    <h1>Welcome to the PerformTel Portal! </h1>
+    <h3>Please Log in to continue</h3>
+
+
+    <form id="loginform" action="/accounts/auth/" method="post">{% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" value="" id="username"><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" value="" id="password"><br>
+
+    <input type="submit" value="login" class="btn btn-success" />
+
+
+
+
+    </form>
+
+
+
+
+
+{% endblock %}

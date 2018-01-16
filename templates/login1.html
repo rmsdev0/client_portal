@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Performtel Login</title>
+         <link rel="stylesheet" href="{% static "css/style_login.css" %}">
+
+    </head>
+
+
+    <body class="align">
+
+  <div class="site__container">
+
+
+    <div class="grid__container">
+        <div class="logo">
+      <img src="{% static 'img/ptellogo2.jpg' %}" />
+        </div>
+
+      <form id="loginform" action="/accounts/auth/" method="post" class="form form--login">{% csrf_token %}
+
+        <div class="form__field">
+          <label class="fontawesome-user" for="login__username"><span class="hidden">Username</span></label>
+          <input name="username" type="text" class="form__input" placeholder="Username" required>
+        </div>
+
+        <div class="form__field">
+          <label class="fontawesome-lock" for="login__password"><span class="hidden">Password</span></label>
+          <input name="password" type="password" class="form__input" placeholder="Password" required>
+        </div>
+
+        <div class="form__field">
+          <input type="submit" value="Sign In">
+        </div>
+
+      </form>
+
+      <p class="text--center">Forgot your password? <a href="#">Click Here</a> <span class="fontawesome-arrow-right"></span></p>
+
+    </div>
+
+  </div>
+    
+    </body>
+
+
+</html>

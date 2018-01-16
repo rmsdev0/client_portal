@@ -1,0 +1,59 @@
+
+{% load static %}
+
+<h3>service-level-hourly Yesterday/</h3>
+<table>
+    <tr><th>Adesso Campaigns</th></tr><br>
+    <tr>
+        <th>Start</th>
+        <th>End</th>
+        <th>Service Level</th>
+        <th>Calls</th>
+        <th>Answered</th>
+        <th>Abandons</th>
+        <th>AWT</th>
+        <th>AHT</th>
+
+    </tr>
+    {% for i in hour %}
+    <tr>
+    <td>{{ i.0 }}</td>
+    <td>{{ i.1 }}</td>
+    <td>{{ i.2 }}</td>
+    <td>{{ i.3 }}</td>
+    <td>{{ i.4 }}</td>
+    <td>{{ i.5 }}</td>
+    <td>{{ i.6 }}</td>
+    <td>{{ i.7 }}</td>
+    <td>{{ i.8 }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>service-level-hourly Today</h3>
+<table>
+    <tr><th>Adesso Campaigns</th></tr><br>
+    <tr>
+        <th>Start</th>
+        <th>End</th>
+        <th>Service Level</th>
+        <th>Calls</th>
+        <th>Answered</th>
+        <th>Abandons</th>
+        <th>AWT</th>
+        <th>AHT</th>
+
+    </tr>
+    {% for i in today %}
+    <tr>
+    <td>{{ i.0 }}</td>
+    <td>{{ i.1 }}</td>
+    <td>{{ i.2 }}</td>
+    <td>{{ i.3 }}</td>
+    <td>{{ i.4 }}</td>
+    <td>{{ i.5 }}</td>
+    <td>{{ i.6 }}</td>
+    <td>{{ i.7 }}</td>
+    <td>{{ i.8 }}</td>
+    </tr>
+    {% endfor %}

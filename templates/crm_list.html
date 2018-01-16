@@ -1,0 +1,89 @@
+{% extends 'prod_dash.html' %}
+{% load static %}
+
+{% block page_content %}
+<div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>Crm Info</h3>
+                        </div>
+
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel" style="height:100%;">
+                                <div class="x_title">
+                                    <h3>Customer id: {{ data.0.customer_id }}</h3><br>
+                                    <br><br>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Settings 1</a>
+                                                </li>
+                                                <li><a href="#">Settings 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    {% for i in data %}
+                                    <div class="crm-listing-order-id">
+                                    <h2>Order ID: {{ i.order_id }}</h2><br><br>
+                                    </div>
+                                    <div class="crm-listing-top">
+                                    <br>
+                                    <br>
+                                        <b>Name:</b> {{ i.first_name }} {{ i.last_name }}<br>
+                                        <b>Phone:</b> {{ i.phone }} <br>
+                                        <b>Street:</b> {{ i.street }} <br>
+                                        <b>City:</b>   {{ i.city }} <br>
+                                        <b>State:</b>  {{ i.state }}<br>
+                                        <b>Zip:</b>  {{ i.zip }}<br>
+                                    </div>
+                                    <div class="crm-listing-top">
+                                        <b>Email:</b> {{ i.email }}<br>
+                                        <b>Campaign ID:</b> {{ i.camp_id }} <br>
+                                        <b>Product ID:</b> {{ i.main_prod_id }}<br>
+                                        <b>Product Qty:</b> {{ i.main_prod_qty }}<br>
+                                        <b>Order Total:</b> {{ i.order_total }}<br>
+                                        <b>Tracking:</b> {{ i.tracking_number }}<br>
+                                    </div>
+                                    <div class="crm-listing-notes">
+                                        <b>System Notes:</b><br>
+                                        {% for x in i.s_notes %}
+                                            {{ x }}<br><br>
+                                        {% endfor %}<br>
+                                        <b>Employee Notes:</b><br>
+                                        {% for z in i.e_notes %}
+                                            {{ z }}<br><br>
+                                        {% endfor %}<br>
+
+                                        ----------------------------------------------
+                                    </div>
+                                    {% endfor %}
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+{% endblock %}

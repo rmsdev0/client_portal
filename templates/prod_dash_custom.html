@@ -1,0 +1,114 @@
+{% extends 'prod_dash.html' %}
+
+{% block date-range %}
+   <div id="top-title"> <h4>Dates: {{ date_range.0 }} - {{ date_range.1 }}</h4></div>
+    <form id="date-range" method="post" action="{% url 'dashboard.views.prod_dashboard_custom' %}">
+        Start:
+        <input type="text" name="start-date">
+        End:
+        <input type="text" name="end-date">
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
+{% block top-tiles %}
+<div class="row tile_count">
+    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-phone"></i> Total Calls</span>
+            <div class="count">{{ metrics.calls|default:'0' }}</div>
+        <!--    <span class="count_bottom"><i class="green">4% </i> From last Week</span> -->
+        </div>
+    </div>
+    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-trophy"></i> Handled</span>
+            <div class="count">{{ hand|default:'0' }}</div>
+        <!--    <span class="count_bottom"><i class="green">4% </i> From last Week</span> -->
+        </div>
+    </div>
+    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-ban"></i> Abandons</span>
+            <div class="count">{{ metrics.abandons|default:'0' }}</div>
+          <!--  <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span> -->
+        </div>
+    </div>
+    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-bar-chart"></i> Abandon %</span>
+            <div class="count green">{{ metrics.abandon_rate|default:'0' }}</div>
+        <!--    <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span> -->
+        </div>
+    </div>
+    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-area-chart"></i> Service Level</span>
+            <div class="count">{{ metrics.service_level|default:'0' }}</div>
+        <!--    <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span> -->
+        </div>
+    </div>
+    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-moneycd "></i> Saves</span>
+            <div class="count">{{metrics.saves|default:'0'}}</div>
+      <!--      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span> -->
+        </div>
+    </div>
+    <!-- test 2 columns -->
+    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-clock-o"></i> Avg Wait</span>
+            <div class="count green">{{ metrics.wait_time|default:'0' }}</div>
+        <!--    <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span> -->
+        </div>
+    </div>
+    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-ban"></i> Avg Talk Time</span>
+            <div class="count">{{ metrics.talk_time|default:'0' }}</div>
+          <!--  <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span> -->
+        </div>
+    </div>
+    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-clock-o"></i> Avg ACW</span>
+            <div class="count green">{{ metrics.aftercall|default:'0' }}</div>
+        <!--    <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span> -->
+        </div>
+    </div>
+    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-clock-o"></i> Avg Hold</span>
+            <div class="count">{{metrics.hold_time|default:'0'}}</div>
+      <!--      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span> -->
+        </div>
+    </div>
+    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-clock-o"></i> Avg Handle</span>
+            <div class="count green">{{ metrics.handle_time|default:'0' }}</div>
+        <!--    <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span> -->
+        </div>
+    </div>
+    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-clock-o"></i> Refunds</span>
+            <div class="count">{{metrics.refunds|default:'0'}}</div>
+      <!--      <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span> -->
+        </div>
+    </div>
+
+</div>
+   {% endblock %}

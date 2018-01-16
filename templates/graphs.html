@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>PerformTel Dash</title>
+		<link rel="stylesheet" href="{% static "css/960.css" %}">
+		<link rel="stylesheet" href="{% static "css/template.css" %}">
+		<link rel="stylesheet" href="{% static "css/colour.css" %}">
+		<!--[if IE]><![if gte IE 6]><![endif]-->
+		<script src={% static "js/glow/1.7.0/core/core.js" %}></script>
+		<script src={% static "js/glow/1.7.0/widgets/widgets.js" %}></script>
+		<link href="{% static "js/glow/1.7.0/widgets/widgets.css" %}" />
+         <script src={% static "js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" %}></script>
+
+		<script type="text/javascript">
+			glow.ready(function(){
+				new glow.widgets.Sortable(
+					'#content .grid_5, #content .grid_6',
+					{
+						draggableOptions : {
+							handle : 'h2'
+						}
+					}
+				);
+			});
+		</script>
+		<!--[if IE]><![endif]><![endif]-->
+	</head>
+	<body>
+
+		<h1 id="head">PerformTel Dash V0.1</h1>
+		
+		<ul id="navigation">
+			<li><a href="{% url 'dashboard.views.dash' %}">Dashboard</a></li>
+			<li><a href="#">Reports</a></li>
+			<li><span class="active">Graphs</span></li>
+		</ul>
+
+			<div id="content" class="container_16 clearfix">
+				<div class="grid_5">
+					<div class="box">
+						<h2>Calls By day</h2>
+                        <img src="{% static 'img/cbd.png' %}" width="275">
+					</div>
+					<div class="box">
+						<h2>Calls By Time Of Day</h2>
+                     <img src="{% static 'img/cbh.png' %}" width="275">
+					</div>
+				</div>
+				<div class="grid_6">
+					<div class="box">
+						<h2>Abandon % by day</h2>
+                     <img src="{% static 'img/abandon.png' %}" width="275">
+					</div>
+					<div class="box">
+						<h2>Avg Handle Time By Day</h2>
+                     <img src="{% static 'img/handletime.png' %}" width="275">
+					</div>
+				</div>
+				<div class="grid_5">
+					<div class="box">
+						<h2>Customers Retained</h2>
+                      <img src="{% static 'img/crd.png' %}" width="275">
+                     </div>
+					<div class="box">
+						<h2>Dollars Refunded</h2>
+                      <img src="{% static 'img/dbd.png' %}" width="275">
+				</div>
+			</div>
+
+		<div id="foot">
+			<div class="container_16 clearfix">
+				<div class="grid_16">
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

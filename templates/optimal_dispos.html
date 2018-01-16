@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+    <head>
+         <link rel="stylesheet" href="{% static "css/nv.d3.css" %}">
+         <script src="{% static "js/d3.js" %}"></script>
+         <script src="{% static "js/d3.min.js" %}"></script>
+         <script src="{% static "js/nv.d3.min.js" %}"></script>
+    <style>
+
+     #chart1 svg {
+     height: 400px;
+     width: 100%;
+     }
+
+   </style>
+    </head>
+     <body>
+     <div id="chart1">
+         <svg></svg>
+     </div>
+<script>
+var data =
+[
+  {
+    "key": "Saves",
+    "values": [
+      {
+        "x": {{ dates.6 }},
+        "y": {{ saves.6 }}
+      },
+      {
+        "x": {{ dates.5 }},
+        "y": {{ saves.5 }}
+      },
+      {
+        "x": {{ dates.4 }},
+        "y": {{ saves.4 }}
+      },
+       {
+        "x": {{ dates.3 }},
+        "y": {{ saves.3 }}
+      },
+      {
+        "x": {{ dates.2 }},
+        "y": {{ saves.2 }}
+      },
+        {
+        "x": {{ dates.1 }},
+        "y": {{ saves.1 }}
+      },
+       {
+        "x": {{ dates.0 }},
+        "y": {{ saves.0 }}
+      }
+    ]
+  },
+  {
+    "key": "Cancels",
+    "values": [
+      {
+        "x": {{ dates.6 }},
+        "y": {{ cancels.6 }}
+      },
+      {
+        "x": {{ dates.5 }},
+        "y": {{ cancels.5 }}
+      },
+      {
+        "x": {{ dates.4 }},
+        "y": {{ cancels.4 }}
+      },
+       {
+        "x": {{ dates.3 }},
+        "y": {{ cancels.3 }}
+      },
+      {
+        "x": {{ dates.2 }},
+        "y": {{ cancels.2 }}
+      },
+        {
+        "x": {{ dates.1 }},
+        "y": {{ cancels.1 }}
+      },
+       {
+        "x": {{ dates.0 }},
+        "y": {{ cancels.0 }}
+      }
+    ]
+  },
+  {
+    "key": "Refunds",
+    "values": [
+      {
+        "x": {{ dates.6 }},
+        "y": {{ refunds.6 }}
+      },
+      {
+        "x": {{ dates.5 }},
+        "y": {{ refunds.5 }}
+      },
+      {
+        "x": {{ dates.4 }},
+        "y": {{ refunds.4 }}
+      },
+      {
+        "x": {{ dates.3 }},
+        "y": {{ refunds.3 }}
+      },
+      {
+        "x": {{ dates.2 }},
+        "y": {{ refunds.2 }}
+      },
+      {
+        "x": {{ dates.1 }},
+        "y": {{ refunds.1 }}
+      },
+      {
+        "x": {{ dates.0 }},
+        "y": {{ refunds.0 }}
+      }
+    ]
+  }
+];
+
+nv.addGraph(function() {
+    var chart = nv.models.multiBarChart()
+      .duration(350)
+      .reduceXTicks(false)   //If 'false', every single x-axis tick label will be rendered.
+      .rotateLabels(0)      //Angle to rotate x-axis labels.
+      .showControls(true)   //Allow user to switch between 'Grouped' and 'Stacked' mode.
+      .groupSpacing(0.1)    //Distance between each group of bars.
+    ;
+
+    chart.yAxis
+        .tickFormat(d3.format(',.1f'));
+
+    d3.select('#chart1 svg')
+        .datum(data)
+        .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+});
+
+
+</script>
+</body>

@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+    <head>
+         <link rel="stylesheet" href="{% static "css/nv.d3.css" %}">
+         <script src="{% static "js/d3.js" %}"></script>
+         <script src="{% static "js/d3.min.js" %}"></script>
+         <script src="{% static "js/nv.d3.min.js" %}"></script>
+
+<style>
+
+#chart svg {
+  height: 400px;
+}
+
+</style>
+    </head>
+
+<div id="chart">
+  <svg></svg>
+</div>
+
+<script>
+var data =
+[
+  {
+    "key": "Calls",
+    "values": [
+      {
+        "x": 1,
+        "y": 55
+      },
+      {
+        "x": 2,
+        "y": 45
+      },
+      {
+        "x": 3,
+        "y": 65
+      },
+       {
+        "x": 4,
+        "y": 75
+      },
+      {
+        "x": 5,
+        "y": 43
+      },
+        {
+        "x": 6,
+        "y": 51
+      },
+       {
+        "x": 7,
+        "y": 62
+      }
+    ]
+  },
+  {
+    "key": "Abandons",
+    "values": [
+      {
+        "x": 1,
+        "y": 5
+      },
+      {
+        "x": 2,
+        "y": 10
+      },
+      {
+        "x": 3,
+        "y": 15
+      },
+      {
+        "x": 4,
+        "y": 10
+      },
+      {
+        "x": 5,
+        "y": 7
+      },
+      {
+        "x": 6,
+        "y": 19
+      },
+      {
+        "x": 7,
+        "y": 9
+      }
+    ]
+  }
+];
+
+
+    nv.addGraph(function() {
+  var chart = nv.models.scatterChart()
+                .showDistX(true)
+                .showDistY(true)
+                .color(d3.scale.category10().range());
+
+
+  chart.xAxis.tickFormat(d3.format('.02f'));
+  chart.yAxis.tickFormat(d3.format('.02f'));
+
+  d3.select('#chart svg')
+      .datum(data)
+    .transition().duration(500)
+      .call(chart);
+
+  nv.utils.windowResize(chart.update);
+
+  return chart;
+});
+
+</script>

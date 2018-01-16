@@ -1,0 +1,261 @@
+{% extends 'prod_dash.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Perfromtel | Portal</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="{% static "css/gcss/bootstrap.min.css" %}" rel="stylesheet">
+
+    <link href="{% static "fonts/gfonts/css/font-awesome.min.css" %}"rel="stylesheet">
+    <link href="{% static "css/gcss/animate.min.css" %}" rel="stylesheet">
+
+    <!-- Custom styling plus plugins -->
+    <link href="{% static "css/gcss/custom.css" %}"rel="stylesheet">
+    <link href="{% static "css/gcss/icheck/flat/green.css" %}" rel="stylesheet">
+
+
+    <script src="{% static "js/gjs/jquery.min.js" %}"></script>
+
+    <!--[if lt IE 9]>
+        <script src="../assets/js/ie8-responsive-file-warning.js"></script>
+        <![endif]-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+            {% block page_content %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>
+                    Inbox
+                    <small>
+
+                    </small>
+                </h3>
+                        </div>
+
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2> Inbox<small>User Name</small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a href="#"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Settings 1</a>
+                                                </li>
+                                                <li><a href="#">Settings 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+
+                                    <div class="row">
+
+                                        <div class="col-sm-3 mail_list_column">
+
+                                            <div class="mail_list">
+                                                <div class="left">
+                                                    <i class="fa fa-circle"></i> <i class="fa fa-edit"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <h3>Performtel-Admin <small>3.00 PM</small></h3>
+                                                    <p>Important news about your Campaign...</p>
+                                                </div>
+                                            </div>
+                                            <div class="mail_list">
+                                                <div class="left">
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <h3>Performtel-Admin <small>4.09 PM</small></h3>
+                                                    <p>Escalated call alert!!!...</p>
+                                                </div>
+                                            </div>
+                                            <div class="mail_list">
+                                                <div class="left">
+                                                    <i class="fa fa-circle-o"></i><i class="fa fa-paperclip"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <h3>Performtel-Admin <small>4.09 PM</small></h3>
+                                                    <p>Your request has been processed....</p>
+                                                </div>
+                                            </div>
+                                            <div class="mail_list">
+                                                <div class="left">
+                                                    <i class="fa fa-paperclip"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <h3>Performtel-Admin <small>4.09 PM</small></h3>
+                                                    <p>Test message number 4...</p>
+                                                </div>
+                                            </div>
+                                            <div class="mail_list">
+                                                <div class="left">
+                                                    .
+                                                </div>
+                                                <div class="right">
+                                                    <h3>Performtel-Admin <small>4.09 PM</small></h3>
+                                                    <p>Test message number 5...</p>
+                                                </div>
+                                            </div>
+                                            <div class="mail_list">
+                                                <div class="left">
+                                                    .
+                                                </div>
+                                                <div class="right">
+                                                    <h3>Performtel-Admin <small>4.09 PM</small></h3>
+                                                    <p>Test message number 6...</p>
+                                                </div>
+                                            </div>
+                                            <div class="mail_list">
+                                                <div class="left">
+                                                    <i class="fa fa-circle"></i> <i class="fa fa-edit"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <h3>Performtel-Admin <small>3.00 PM</small></h3>
+                                                    <p>Test message number 7...</p>
+                                                </div>
+                                            </div>
+                                            <div class="mail_list">
+                                                <div class="left">
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <h3>Performtel-Admin <small>4.09 PM</small></h3>
+                                                    <p>Test message number 8...</p>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <!-- /MAIL LIST -->
+
+
+                                        <!-- CONTENT MAIL -->
+                                        <div class="col-sm-9 mail_view">
+                                            <div class="inbox-body">
+                                                <div class="mail_heading row">
+                                                    <div class="col-md-8">
+                                                        <div class="compose-btn">
+                                                            <a class="btn btn-sm btn-primary" href="mail_compose.html"><i class="fa fa-reply"></i> Reply</a>
+                                                            <button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print" class="btn  btn-sm tooltips"><i class="fa fa-print"></i> </button>
+                                                            <button title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm tooltips"><i class="fa fa-trash-o"></i>
+                                                            </button>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-4 text-right">
+                                                        <p class="date"> 8:02 PM 12 FEB 2014</p>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <h4> Welcome to the Performtel Portal!! Some tips to get you started.</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="sender-info">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <strong>Ptel Admin</strong>
+                                                            <span>(support@performtel.com)</span> to
+                                                            <strong>me</strong>
+                                                            <a class="sender-dropdown"><i class="fa fa-chevron-down"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="view-mail">
+                                                    <p> Tips</p>
+                                                </div>
+
+                                                </div>
+                                                <div class="compose-btn pull-left">
+                                                    <a class="btn btn-sm btn-primary" href="mail_compose.html"><i class="fa fa-reply"></i> Reply</a>
+                                                    <button class="btn btn-sm "><i class="fa fa-arrow-right"></i> Forward</button>
+                                                    <button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print" class="btn  btn-sm tooltips"><i class="fa fa-print"></i> </button>
+                                                    <button title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm tooltips"><i class="fa fa-trash-o"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- /CONTENT MAIL -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endblock %}
+                <!-- footer content -->
+
+                <!-- /footer content -->
+
+            </div>
+            <!-- /page content -->
+        </div>
+
+    </div>
+
+    <div id="custom_notifications" class="custom-notifications dsp_none">
+        <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+        </ul>
+        <div class="clearfix"></div>
+        <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+
+    <script src="{% static "js/gjs/bootstrap.min.js" %}"></script>
+
+    <!-- chart js -->
+    <script src="{% static "js/gjs/chartjs/chart.min.js" %}"></script>
+    <!-- bootstrap progress js -->
+    <script src="{% static "js/gjs/progressbar/bootstrap-progressbar.min.js" %}"></script>
+    <script src="{% static "js/gjs/nicescroll/jquery.nicescroll.min.js" %}"></script>
+    <!-- icheck -->
+    <script src="{% static "js/gjs/icheck/icheck.min.js" %}"></script>
+
+    <script src="{% static "js/gjs/custom.js" %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+{% extends 'prod_dash.html' %}
+{% load static %}
+
+{% block page_content %}
+<div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>Call History</h3>
+                        </div>
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 pull-right">
+                                <div class="input-group">
+                                    <form id="date-range" method="post" action="{% url 'dashboard.views.call_history' %}">
+                                    Date Search:
+                                    <input type="text" class="datepicker" name="date">
+                                    <input type="submit" value="Search">
+                                    </form>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel" style="height:100%;">
+                                <div class="x_title">
+                                    <h2>{{ display_date }}</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Settings 1</a>
+                                                </li>
+                                                <li><a href="#">Settings 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                <div class="x_content">
+                                    <table id="example" class="table table-striped responsive-utilities jambo_table">
+                                        <thead>
+                                            <tr class="headings">
+                                                <th>
+                                                    <input type="checkbox" class="tableflat">
+                                                </th>
+                                                <th>Phone </th>
+                                                <th>Wait Time </th>
+                                                <th>Talk Time </th>
+                                                <th>Aftercall </th>
+                                                <th>Dispostion </th>
+                                                <th>Agent </th>
+                                                <th class=" no-link last"><span class="nobr">Action</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        {% for i in rec_calls %}
+                                            <tr class="even pointer">
+                                                <td class="a-center ">
+                                                    <input type="checkbox" class="tableflat">
+                                                </td>
+                                                <td class="phone">{{ i.phone }}</td>
+                                                <td class="que">{{ i.que_time }}</td>
+                                                <td class="talk">{{ i.talk_time }}</td>
+                                                <td class="aftercall">{{ i.acw }}</td>
+                                                <td class="disposition">{{ i.disposition }}</td>
+                                                <td class="agent">{{ i.agent }}</td>
+                                                <td class=" last"><form id="crm-search" method="post" action="{% url 'dashboard.views.crm_listing' %}">
+                                                    <input type="hidden" name="phone" value="{{ i.phone }}">
+                                                    <input type="submit" value="view">
+                                                </form>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+{% endblock %}

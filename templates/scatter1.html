@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+    <head>
+         <link rel="stylesheet" href="{% static "css/nv.d3.css" %}">
+         <script src="{% static "js/d3.js" %}"></script>
+         <script src="{% static "js/d3.min.js" %}"></script>
+         <script src="{% static "js/nv.d3.min.js" %}"></script>
+
+<style>
+
+#chart svg {
+  height: 400px;
+}
+
+</style>
+    </head>
+
+<div id="chart">
+  <svg></svg>
+</div>
+
+<script>
+var data =
+[
+  {
+    "key": "Saves",
+    "values": [
+      {
+        "x": 1,
+        "y": 35
+      },
+      {
+        "x": 2,
+        "y": 25
+      },
+      {
+        "x": 3,
+        "y": 45
+      },
+       {
+        "x": 4,
+        "y": 35
+      },
+      {
+        "x": 5,
+        "y": 33
+      },
+        {
+        "x": 6,
+        "y": 41
+      },
+       {
+        "x": 7,
+        "y": 52
+      }
+    ]
+  },
+  {
+    "key": "Cancels",
+    "values": [
+      {
+        "x": 1,
+        "y": 22
+      },
+      {
+        "x": 2,
+        "y": 25
+      },
+      {
+        "x": 3,
+        "y": 18
+      },
+       {
+        "x": 4,
+        "y": 30
+      },
+      {
+        "x": 5,
+        "y": 21
+      },
+        {
+        "x": 6,
+        "y": 30
+      },
+       {
+        "x": 7,
+        "y": 35
+      }
+    ]
+  },
+  {
+    "key": "Refunds",
+    "values": [
+      {
+        "x": 1,
+        "y": 16
+      },
+      {
+        "x": 2,
+        "y": 11
+      },
+      {
+        "x": 3,
+        "y": 14
+      },
+      {
+        "x": 4,
+        "y": 18
+      },
+      {
+        "x": 5,
+        "y": 21
+      },
+      {
+        "x": 6,
+        "y": 14
+      },
+      {
+        "x": 7,
+        "y": 9
+      }
+    ]
+  }
+];
+
+
+    nv.addGraph(function() {
+  var chart = nv.models.scatterChart()
+                .showDistX(true)
+                .showDistY(true)
+                .color(d3.scale.category10().range());
+
+  chart.xAxis.tickFormat(d3.format('.02f'));
+  chart.yAxis.tickFormat(d3.format('.02f'));
+
+  d3.select('#chart svg')
+      .datum(data)
+    .transition().duration(500)
+      .call(chart);
+
+  nv.utils.windowResize(chart.update);
+
+  return chart;
+});
+
+</script>

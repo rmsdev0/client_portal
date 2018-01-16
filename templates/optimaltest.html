@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+    <head>
+         <link rel="stylesheet" href="{% static "css/nv.d3.css" %}">
+         <script src="{% static "js/d3.js" %}"></script>
+         <script src="{% static "js/d3.min.js" %}"></script>
+         <script src="{% static "js/nv.d3.min.js" %}"></script>
+    <style>
+
+     #chart1 svg {
+     height: 400px;
+     width: 100%;
+     }
+   </style>
+    </head>
+     <body>
+     <div id="chart1">
+         <svg></svg>
+     </div>
+<script>
+var days = ["{{ dates.6 }}", "{{ dates.5 }}", "{{ dates.4 }}", "{{ dates.3 }}", "{{ dates.2 }}", "{{ dates.1 }}", "{{ dates.0 }}"]
+
+
+var data =
+[
+  {
+    "key": "Calls",
+    "values": [
+      {
+        "x": {{ dates.6 }},
+        "y": {{ calls.6 }}
+      },
+      {
+        "x": {{ dates.5 }},
+        "y": {{ calls.5 }}
+      },
+      {
+        "x": {{ dates.4 }},
+        "y": {{ calls.4 }}
+      },
+       {
+        "x": {{ dates.3 }},
+        "y": {{ calls.3 }}
+      },
+      {
+        "x": {{ dates.2 }},
+        "y": {{ calls.2 }}
+      },
+        {
+        "x": {{ dates.1 }},
+        "y": {{ calls.1 }}
+      },
+       {
+        "x": {{ dates.0 }},
+        "y": {{ calls.0 }}
+      }
+    ]
+  },
+  {
+    "key": "Abandons",
+    "values": [
+      {
+        "x": {{ dates.6 }},
+        "y": {{ abandons.6 }}
+      },
+      {
+        "x": {{ dates.5 }},
+        "y": {{ abandons.5 }}
+      },
+      {
+        "x": {{ dates.4 }},
+        "y": {{ abandons.4 }}
+      },
+      {
+        "x": {{ dates.3 }},
+        "y": {{ abandons.3 }}
+      },
+      {
+        "x": {{ dates.2 }},
+        "y": {{ abandons.2 }}
+      },
+      {
+        "x": {{ dates.1 }},
+        "y": {{ abandons.1 }}
+      },
+      {
+        "x": {{ dates.0 }},
+        "y": {{ abandons.0 }}
+      }
+    ]
+  }
+];
+
+nv.addGraph(function() {
+    var chart = nv.models.multiBarChart()
+      .duration(350)
+      .reduceXTicks(false)   //If 'false', every single x-axis tick label will be rendered.
+      .rotateLabels(0)      //Angle to rotate x-axis labels.
+      .showControls(true)   //Allow user to switch between 'Grouped' and 'Stacked' mode.
+      .groupSpacing(0.1)    //Distance between each group of bars.
+    ;
+
+
+
+
+    chart.yAxis
+        .tickFormat(d3.format(',.1f'));
+
+    d3.select('#chart1 svg')
+        .datum(data)
+        .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+});
+
+
+</script>
+</body>

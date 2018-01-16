@@ -1,0 +1,248 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>PerformTel Dash</title>
+		<link rel="stylesheet" href="{% static "css/960.css" %}">
+		<link rel="stylesheet" href="{% static "css/template.css" %}">
+		<link rel="stylesheet" href="{% static "css/colour.css" %}">
+		<!--[if IE]><![if gte IE 6]><![endif]-->
+		<script src={% static "js/glow/1.7.0/core/core.js" %}></script>
+		<script src={% static "js/glow/1.7.0/widgets/widgets.js" %}></script>
+		<link href="{% static "js/glow/1.7.0/widgets/widgets.css" %}" />
+         <script src={% static "js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" %}></script>
+
+		<script type="text/javascript">
+			glow.ready(function(){
+				new glow.widgets.Sortable(
+					'#content .grid_5, #content .grid_6',
+					{
+						draggableOptions : {
+							handle : 'h2'
+						}
+					}
+				);
+			});
+		</script>
+		<!--[if IE]><![endif]><![endif]-->
+	</head>
+	<body>
+
+		<h1 id="head">PerformTel Dash V0.1</h1>
+		
+		<ul id="navigation">
+			<li><span class="active">Dashboard</span></li>
+			<li><a href="#">Reports</a></li>
+			<li><a href="{% url 'dashboard.views.graph' %}">Graphs</a></li>
+		</ul>
+
+			<div id="content" class="container_16 clearfix">
+				<div class="grid_5">
+					<div class="box">
+						<h2>Statistics {{ yesterday }}</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>Calls</td>
+									<td>{{ calls }}</td>
+								</tr>
+								<tr>
+									<td>Saves</td>
+									<td>{{ saves }}</td>
+								</tr>
+								<tr>
+									<td>Refunds</td>
+									<td>{{ refunds }}</td>
+								</tr>
+								<tr>
+									<td>Abandons</td>
+									<td>{{ abandons }}</td>
+								</tr>
+                                <tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="box">
+						<h2>Metrics {{ yesterday }}</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>Service Level</td>
+									<td>{{ sl }}</td>
+								</tr>
+								<tr>
+									<td>Abandon %</td>
+									<td>{{ calcabn }}</td>
+								</tr>
+								<tr>
+									<td>ASA</td>
+									<td>{{ qwt }}</td>
+								</tr>
+								<tr>
+									<td>Avg Talk Time</td>
+									<td>{{ talk }}</td>
+								</tr>
+                                <tr>
+									<td>Avg ACW</td>
+									<td>{{ acw }}</td>
+								</tr>
+                                <tr>
+									<td>Avg handle Time</td>
+									<td>{{ handle }}</td>
+								</tr>
+                                <tr>
+									<td>Save %</td>
+									<td>{{ saverate }}</td>
+								</tr>
+                                <tr>
+									<td>Refund %</td>
+									<td>{{ refundrate }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="box">
+						<h2>Messages</h2>
+						<div class="utils">
+							<a href="#">Inbox</a>
+						</div>
+						<p class="center">Have have <a href="#">3</a> unread messages.</p>
+					</div>
+				</div>
+				<div class="grid_5">
+					<div class="box">
+						<h2> Last 7 Days</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>Calls</td>
+									<td>{{ wcalls }}</td>
+								</tr>
+								<tr>
+									<td>Saves</td>
+									<td>{{ wsaves }}</td>
+								</tr>
+								<tr>
+									<td>Refunds</td>
+									<td>{{ wrefunds }}</td>
+								</tr>
+								<tr>
+									<td>Abandons</td>
+									<td>{{ wabandons }}</td>
+								</tr>
+                                <tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="box">
+						<h2>Metrics Last 7 Days</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>Service Level</td>
+									<td>{{ wsl }}</td>
+								</tr>
+								<tr>
+									<td>Abandon %</td>
+									<td>{{ wcalcabn }}</td>
+								</tr>
+								<tr>
+									<td>ASA</td>
+									<td>{{ wqwt }}</td>
+								</tr>
+								<tr>
+									<td>Avg Talk Time</td>
+									<td>{{ wtalk }}</td>
+								</tr>
+                                <tr>
+									<td>Avg ACW</td>
+									<td>{{ wacw }}</td>
+								</tr>
+                                <tr>
+									<td>Avg handle Time</td>
+									<td>{{ whandle }}</td>
+								</tr>
+                                <tr>
+									<td>Save %</td>
+									<td>{{ wsaverate }}</td>
+								</tr>
+                                <tr>
+									<td>Refund %</td>
+									<td>{{ wrefundrate }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="grid_5">
+					<div class="box">
+						<h2>Last 30 Days</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>Calls</td>
+									<td>{{ mcalls }}</td>
+								</tr>
+								<tr>
+									<td>Saves</td>
+									<td>{{ msaves }}</td>
+								</tr>
+								<tr>
+									<td>Refunds</td>
+									<td>{{ mrefunds }}</td>
+								</tr>
+								<tr>
+									<td>Abandons</td>
+									<td>{{ mabandons }}</td>
+								</tr>
+                                <tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="box">
+						<h2>Metrics Last 30 days</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>Service Level</td>
+									<td>{{ msl }}</td>
+								</tr>
+								<tr>
+									<td>Abandon %</td>
+									<td>{{ mcalcabn }}</td>
+								</tr>
+								<tr>
+									<td>ASA</td>
+									<td>{{ mqwt }}</td>
+								</tr>
+								<tr>
+									<td>Avg Talk Time</td>
+									<td>{{ mtalk }}</td>
+								</tr>
+                                <tr>
+									<td>Avg ACW</td>
+									<td>{{ macw }}</td>
+								</tr>
+                                <tr>
+									<td>Avg handle Time</td>
+									<td>{{ mhandle }}</td>
+								</tr>
+                                <tr>
+									<td>Save %</td>
+									<td>{{ msaverate }}</td>
+								</tr>
+                                <tr>
+									<td>Refund %</td>
+									<td>{{ mrefundrate }}</td>
+								</tr>
+							</tbody>
+						</table>
+				</div>
+			</div>
+		<div id="foot">
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+    <head>
+         <link rel="stylesheet" href="{% static "css/nv.d3.css" %}">
+         <script src="{% static "js/d3.js" %}"></script>
+         <script src="{% static "js/d3.min.js" %}"></script>
+         <script src="{% static "js/nv.d3.min.js" %}"></script>
+    <style>
+
+     #chart svg {
+     height: 375px;
+     width: 100%;
+     }
+
+   </style>
+    </head>
+   <body>
+   <div id="chart">
+         <svg></svg>
+     </div>
+
+   <script>
+   var data = [
+      {
+        "label": "Calls",
+        "value" : {{ calls }}
+      } ,
+      {
+        "label": "Abandons",
+        "value" : {{ abandons }}
+      }
+    ];
+
+
+
+   nv.addGraph(function() {
+  var chart = nv.models.pieChart()
+      .x(function(d) { return d.label })
+      .y(function(d) { return d.value })
+      .showLabels(true);
+
+    d3.select("#chart svg")
+        .datum(data)
+        .transition().duration(350)
+        .call(chart);
+
+  return chart;
+})
+</script>
+
+   </body>
